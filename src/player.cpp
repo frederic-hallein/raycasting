@@ -2,15 +2,7 @@
 
 #include "headers/Player.hpp"
 
-Player::Player(double x_pos, double y_pos, double x_dir, double y_dir, double x_plane, double y_plane)
-{
-    this->x_pos = x_pos;
-    this->y_pos = y_pos;
-    this->x_dir = x_dir;
-    this->y_dir = y_dir;
-    this->x_plane = x_plane;
-    this->y_plane = y_plane; 
-}
+Player::Player() {}
 
 Player::~Player() {}
 

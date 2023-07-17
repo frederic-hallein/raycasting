@@ -1,5 +1,7 @@
 #pragma once
 
+#include "headers/Map.hpp"
+
 class Ray {
 public:
     Ray();
@@ -10,7 +12,10 @@ public:
     void setYDir(double player_y_dir, double y_plane, double x_camera);
     void setDeltaXDist();
     void setDeltaYDist();
-    void calculateStep(double player_x_pos, double player_y_pos, int x_map, int y_map);
+    void setLineHeight(int SCREEN_HEIGHT);
+    void setPerpWallDist();
+    void setDrawStart(int SCREEN_HEIGHT);
+    void setDrawEnd(int SCREEN_HEIGHT);
 
     double getXCamera();
     double getXDir();
@@ -19,6 +24,15 @@ public:
     double getSideYDist();
     double getDeltaXDist();
     double getDeltaYDist();
+    int getLineHeight();
+    int getDrawStart();
+    int getDrawEnd();
+    int getSide();
+
+    void calculateStep(double player_x_pos, double player_y_pos, int x_map, int y_map);
+    void DDA(int x_map, int y_map, Map map);
+
+    
 private:
     double x_camera;
     double ray_x_dir;
@@ -27,10 +41,14 @@ private:
     double side_y_dist;
     double delta_x_dist;
     double delta_y_dist;
-    double step_x;
-    double step_y;
+    double x_step;
+    double y_step;
+    double perp_wall_dist;
 
     int hit = 0;
     int side;
+    int line_height;
+    int draw_start;
+    int draw_end;
 
 };

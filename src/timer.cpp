@@ -10,7 +10,3 @@ Timer::~Timer()
 
 }
 
-double Timer::FPS()
-{
-    
-}

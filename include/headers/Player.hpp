@@ -2,7 +2,7 @@
 
 class Player {
 public:
-    Player(double x_pos, double y_pos, double x_dir, double y_dir, double x_plane, double y_plane);
+    Player();
     ~Player();
 
     void printPlayerInfo();
@@ -18,10 +18,10 @@ public:
 
 
 private:
-    double x_pos;
-    double y_pos;
-    double x_dir;
-    double y_dir;
-    double x_plane;
-    double y_plane;
+    double x_pos = 22;
+    double y_pos = 12;
+    double x_dir = -1;
+    double y_dir = 0;
+    double x_plane = 0;
+    double y_plane = 0.66;
 };

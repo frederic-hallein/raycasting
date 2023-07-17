@@ -1,6 +1,11 @@
 #pragma once
 
 #include <SDL2/SDL.h>
+#include <vector>
+
+#include "headers/Player.hpp"
+#include "headers/Map.hpp"
+#include "headers/Ray.hpp"
 
 class Game {  
 public:
@@ -12,10 +17,20 @@ public:
     void update();
     void render();
     void clean();
+    bool running();
 
-    bool running() {return is_running;}
+
 private:
+    int w;
+    int h;
     bool is_running = true;
     SDL_Window* window;
     SDL_Renderer* renderer;
+
+    Player player;
+    Map map;
+    Ray ray;
+    std::vector<Ray> rays;
+
+
 };
