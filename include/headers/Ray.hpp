@@ -32,7 +32,6 @@ public:
     void calculateStep(double player_x_pos, double player_y_pos, int x_map, int y_map);
     void performDDA(int& tmp_x_map, int& tmp_y_map, Map& map);
 
-    
 private:
     double x_camera;
     double ray_x_dir;
@@ -50,5 +49,4 @@ private:
     int line_height;
     int draw_start;
     int draw_end;
-
 };

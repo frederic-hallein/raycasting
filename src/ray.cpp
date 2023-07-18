@@ -5,7 +5,6 @@
 #include "headers/Ray.hpp"
 #include "headers/Map.hpp"
 
-
 Ray::Ray() {}
 
 Ray::~Ray() {}
@@ -27,7 +26,6 @@ void Ray::setPerpWallDist()
     {
         perp_wall_dist = (side_y_dist - delta_y_dist);
     }
-
 }
 
 void Ray::setDrawStart(int SCREEN_HEIGHT)
@@ -46,7 +44,6 @@ void Ray::setDrawEnd(int SCREEN_HEIGHT)
         draw_end = SCREEN_HEIGHT - 1;
     }
 }
-
 
 double Ray::getXCamera() {return x_camera;}
 double Ray::getXDir() {return ray_x_dir;}
@@ -85,13 +82,12 @@ void Ray::calculateStep(double player_x_pos, double player_y_pos, int x_map, int
         y_step = 1;
         side_y_dist = (y_map + 1.0 - player_y_pos) * delta_y_dist;
     }
-
 }
 
 void Ray::performDDA(int& tmp_x_map, int& tmp_y_map, Map& map)
 {
     while (hit == 0){
-        //jump to next map square, either in x-direction, or in y-direction
+        // jump to next map square, either in x-direction, or in y-direction
         if (side_x_dist < side_y_dist)
         {
             side_x_dist += delta_x_dist;
@@ -104,19 +100,13 @@ void Ray::performDDA(int& tmp_x_map, int& tmp_y_map, Map& map)
             tmp_y_map += y_step;
             side = 1;
         }
-        //Check if ray has hit a wall
-        if (map.getValue(tmp_x_map, tmp_y_map) > 0) {hit = 1;} 
-
-        //std::cout << "(" << x_map << ", " << y_map << ")"<< "| " << map.getValue(x_map, y_map) << "| " << hit  << std::endl;
         
+        // check if ray has hit a wall
+        if (map.getValue(tmp_x_map, tmp_y_map) > 0) {hit = 1;}         
     }
 
     // reset hit to 0
     hit = 0;
-
-
-
-    
 }
 
 

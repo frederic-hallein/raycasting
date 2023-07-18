@@ -2,31 +2,31 @@
 
 #include <iostream>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
 
 #include "headers/Game.hpp"
+#include "headers/Timer.hpp"
 
-// screen size
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
-
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 
 int main(int argc, char* argv[]){
     Game game;
-    game.init("Wolfenstein 3D", SCREEN_WIDTH, SCREEN_HEIGHT);
+    game.init("Ray Casting", SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    while (game.running()){ 
+    double old_time = 0; 
+    while (game.running()){
+        Timer timer(old_time); 
         game.handleEvents();
         game.update();
+
+        timer.start();
         game.render();
-    
-    
-        //player.printPlayerInfo();
+        timer.stop();
+
+        old_time = timer.getTime();
+        game.setSpeedModifierPlayer(timer.getFrameTime());
     }
 
-    
-
     game.clean();
-    
     return 0;
 }

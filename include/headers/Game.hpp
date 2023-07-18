@@ -19,17 +19,17 @@ public:
     void clean();
     bool running();
 
+    void setSpeedModifierPlayer(double frame_time);
 
 private:
     int w;
     int h;
     bool is_running = true;   
-    SDL_Window* window;
-    SDL_Renderer* renderer;
+    SDL_Window* window = nullptr;
+    SDL_Renderer* renderer = nullptr;
+    SDL_Event event;
 
     Player player;
     Map map;
     std::vector<Ray> rays;
-
-
 };

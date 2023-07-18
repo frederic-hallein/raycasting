@@ -1,12 +1,23 @@
 #pragma once
 
+#include <chrono>
+
 class Timer{
 public:
-    Timer();
+    Timer(double p_time);
     ~Timer();
-    
-    //double FPS();
+
+    void start();
+    void stop();
+
+    double getTime();
+    double getFrameTime();
+
 private:
-    double time = 0; //time of current frame
-    double old_time = 0; //time of previous frame
+    std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
+    std::chrono::time_point<std::chrono::high_resolution_clock> end_time;
+
+    double old_time;
+    double time;
+    double frame_time;
 };

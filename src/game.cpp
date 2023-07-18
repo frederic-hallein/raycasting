@@ -13,7 +13,6 @@ Game::~Game() {}
 
 void Game::init(const char* title, int SCREEN_WIDTH, int SCREEN_HEIGHT)
 {
-    
     // initiatlize window and renderer
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0){
         std::cout << "SDL_Init has failed." << std::endl;
@@ -41,15 +40,14 @@ void Game::init(const char* title, int SCREEN_WIDTH, int SCREEN_HEIGHT)
         Ray ray;
         rays.push_back(ray);
     }
-
 }
 
 
 void Game::handleEvents()
 {
-    SDL_Event event;
+    
     SDL_PollEvent(&event);
-
+    player.handleEvents(event);
     switch (event.type){
         case SDL_QUIT:
             is_running = false;   
@@ -57,20 +55,19 @@ void Game::handleEvents()
 
         default:
             break;
-
     }
 }
 
 void Game::update()
 {
+
     player.update();
+    //player.printPlayerInfo();
 
     for (int x = 0; x < w; x++){        
         // set x-coordinate in camera space
         rays[x].setXCamera(x, w);
         
-        // NO -1 ?
-
         //calculate ray position and direction
         rays[x].setXDir(player.getXDir(), player.getXPlane(), rays[x].getXCamera());
         rays[x].setYDir(player.getYDir(), player.getYPlane(), rays[x].getXCamera());
@@ -98,9 +95,7 @@ void Game::update()
         rays[x].setLineHeight(h);
         rays[x].setDrawStart(h);
         rays[x].setDrawEnd(h);
-
     }
-
 }
 
 void Game::render()
@@ -112,22 +107,12 @@ void Game::render()
     SDL_RenderClear(renderer);
     for (int x = 0; x < w; x++)
     {
-        if (rays[x].getSide() == 1)
-        {
-            SDL_SetRenderDrawColor(renderer, R / 2, G / 2, B / 2, 255);
-        }
-        else
-        {
-            SDL_SetRenderDrawColor(renderer, R, G, B, 255);
-        }
- 
-        //std::cout << rays[x].getDrawStart() << "," << rays[x].getDrawEnd() << std::endl;
+        if (rays[x].getSide() == 1) {SDL_SetRenderDrawColor(renderer, R / 2, G / 2, B / 2, 255);}
+        else {SDL_SetRenderDrawColor(renderer, R, G, B, 255);}
         SDL_RenderDrawLine(renderer, x, rays[x].getDrawStart(), x, rays[x].getDrawEnd());
-        //SDL_RenderClear(renderer);
     } 
-    
     SDL_RenderPresent(renderer);
-    //std::cin.get();
+
 }
 
 void Game::clean()
@@ -138,4 +123,10 @@ void Game::clean()
 }
 
 bool Game::running() {return is_running;}
+
+void Game::setSpeedModifierPlayer(double frame_time)
+{
+    player.setMoveSpeed(frame_time * player.getMoveScale());
+    player.setRotSpeed(frame_time * player.getRotScale());
+}
 
