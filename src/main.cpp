@@ -16,7 +16,6 @@ int main(int argc, char* argv[]){
     game.init("Wolfenstein 3D", SCREEN_WIDTH, SCREEN_HEIGHT);
 
     while (game.running()){ 
-        
         game.handleEvents();
         game.update();
         game.render();

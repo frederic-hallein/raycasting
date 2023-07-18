@@ -7,6 +7,7 @@ public:
 
     void printPlayerInfo();
     void update();
+
     
     double getXPos();
     double getYPos();

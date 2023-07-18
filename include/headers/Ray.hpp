@@ -30,7 +30,7 @@ public:
     int getSide();
 
     void calculateStep(double player_x_pos, double player_y_pos, int x_map, int y_map);
-    void DDA(int x_map, int y_map, Map map);
+    void performDDA(int& tmp_x_map, int& tmp_y_map, Map& map);
 
     
 private:

@@ -15,21 +15,17 @@ void Ray::setXDir(double player_x_dir, double x_plane, double x_camera) {ray_x_d
 void Ray::setYDir(double player_y_dir, double y_plane, double x_camera) {ray_y_dir = player_y_dir + y_plane * x_camera;}
 void Ray::setDeltaXDist() {delta_x_dist = (ray_x_dir == 0) ? 1e30 : std::fabs(1 / ray_x_dir);}
 void Ray::setDeltaYDist() {delta_y_dist = (ray_y_dir == 0) ? 1e30 : std::fabs(1 / ray_y_dir);}
-
-void Ray::setLineHeight(int SCREEN_HEIGHT)
-{
-    line_height = (int)(SCREEN_HEIGHT / perp_wall_dist);
-}
+void Ray::setLineHeight(int SCREEN_HEIGHT) {line_height = (int)(SCREEN_HEIGHT / perp_wall_dist);}
 
 void Ray::setPerpWallDist()
 {
-    if(side == 0) 
+    if (side == 0) 
     {
         perp_wall_dist = (side_x_dist - delta_x_dist);
     }
     else
     {
-        perp_wall_dist = (side_x_dist - delta_y_dist);
+        perp_wall_dist = (side_y_dist - delta_y_dist);
     }
 
 }
@@ -89,30 +85,34 @@ void Ray::calculateStep(double player_x_pos, double player_y_pos, int x_map, int
         y_step = 1;
         side_y_dist = (y_map + 1.0 - player_y_pos) * delta_y_dist;
     }
+
 }
 
-void Ray::DDA(int x_map, int y_map, Map map)
+void Ray::performDDA(int& tmp_x_map, int& tmp_y_map, Map& map)
 {
     while (hit == 0){
         //jump to next map square, either in x-direction, or in y-direction
         if (side_x_dist < side_y_dist)
         {
             side_x_dist += delta_x_dist;
-            x_map += x_step;
+            tmp_x_map += x_step;
             side = 0;
         }
         else
         {
             side_y_dist += delta_y_dist;
-            y_map += y_step;
+            tmp_y_map += y_step;
             side = 1;
         }
         //Check if ray has hit a wall
-        if (map.getValue(x_map, y_map) > 0) {hit = 1;} 
+        if (map.getValue(tmp_x_map, tmp_y_map) > 0) {hit = 1;} 
 
-        std::cout << "(" << x_map << ", " << y_map << ")"<< "| " << map.getValue(x_map, y_map) << "| " << hit  << std::endl;
+        //std::cout << "(" << x_map << ", " << y_map << ")"<< "| " << map.getValue(x_map, y_map) << "| " << hit  << std::endl;
         
     }
+
+    // reset hit to 0
+    hit = 0;
 
 
 

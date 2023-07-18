@@ -23,13 +23,12 @@ public:
 private:
     int w;
     int h;
-    bool is_running = true;
+    bool is_running = true;   
     SDL_Window* window;
     SDL_Renderer* renderer;
 
     Player player;
     Map map;
-    Ray ray;
     std::vector<Ray> rays;
 
 

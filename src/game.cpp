@@ -38,13 +38,9 @@ void Game::init(const char* title, int SCREEN_WIDTH, int SCREEN_HEIGHT)
 
     // initialize array of rays
     for (int x = 0; x < w; x++){
+        Ray ray;
         rays.push_back(ray);
     }
-
-
-
-    
-
 
 }
 
@@ -53,42 +49,47 @@ void Game::handleEvents()
 {
     SDL_Event event;
     SDL_PollEvent(&event);
+
     switch (event.type){
         case SDL_QUIT:
             is_running = false;   
             break;
-        
+
         default:
             break;
+
     }
 }
 
 void Game::update()
 {
-    
-    for (int x = 0; x < w; x++){
-        map.setMapPos(player.getXPos(), player.getYPos());
-        
+    player.update();
 
+    for (int x = 0; x < w; x++){        
         // set x-coordinate in camera space
         rays[x].setXCamera(x, w);
         
-        //calculate ray position and direction
-        double x_camera = rays[x].getXCamera();
-        rays[x].setXDir(player.getXDir(), player.getXPlane(), x_camera);
-        rays[x].setYDir(player.getYDir(), player.getYPlane(), x_camera);
+        // NO -1 ?
 
-    
+        //calculate ray position and direction
+        rays[x].setXDir(player.getXDir(), player.getXPlane(), rays[x].getXCamera());
+        rays[x].setYDir(player.getYDir(), player.getYPlane(), rays[x].getXCamera());
+
+
+        //which box of the map we're in
+        map.setMapPos(player.getXPos(), player.getYPos());
+
         //length of ray from one x or y-side to next x or y-side
         rays[x].setDeltaXDist();
         rays[x].setDeltaYDist();
-
 
         //calculate step and initial sideDist
         rays[x].calculateStep(player.getXPos(), player.getYPos(), map.getXMap(), map.getYMap());
 
         //perform DDA
-        rays[x].DDA(map.getXMap(), map.getYMap(), map);
+        int tmp_x_map = map.getXMap();
+        int tmp_y_map = map.getYMap();
+        rays[x].performDDA(tmp_x_map, tmp_y_map, map);
 
         //Calculate distance projected on camera direction (Euclidean distance would give fisheye effect!)
         rays[x].setPerpWallDist();
@@ -98,39 +99,35 @@ void Game::update()
         rays[x].setDrawStart(h);
         rays[x].setDrawEnd(h);
 
-        
-        
-
     }
-
-    for(int x = 0; x < w; x++)
-    {
-        std::cout << "Draw results: " << std::endl;
-        std::cout << x << "| " << rays[x].getDrawStart() << ", " << rays[x].getDrawEnd() << ", " << rays[x].getLineHeight() << std::endl;
-        
-    }
-
-    
-
-
-
 
 }
 
 void Game::render()
 {
+    int R, G, B;
+    R = G = B = 255;
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
     for (int x = 0; x < w; x++)
     {
+        if (rays[x].getSide() == 1)
+        {
+            SDL_SetRenderDrawColor(renderer, R / 2, G / 2, B / 2, 255);
+        }
+        else
+        {
+            SDL_SetRenderDrawColor(renderer, R, G, B, 255);
+        }
  
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         //std::cout << rays[x].getDrawStart() << "," << rays[x].getDrawEnd() << std::endl;
         SDL_RenderDrawLine(renderer, x, rays[x].getDrawStart(), x, rays[x].getDrawEnd());
         //SDL_RenderClear(renderer);
     } 
-
-    SDL_RenderPresent(renderer);
-    std::cin.get();
     
+    SDL_RenderPresent(renderer);
+    //std::cin.get();
 }
 
 void Game::clean()

@@ -15,8 +15,9 @@ void Player::printPlayerInfo()
 
 void Player::update()
 {
-    
+    x_pos -= 0.001; //TOD character constroller
 }
+
 
 double Player::getXPos() {return x_pos;}
 double Player::getYPos() {return y_pos;}
