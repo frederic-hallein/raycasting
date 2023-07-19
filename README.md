@@ -19,4 +19,3 @@ After that, make sure you have "mingw32\bin" in your PATH.
 
 # Screenshot
 ![Screenshot 2023-07-19 162428](https://github.com/famecryptic/raycasting/assets/124629735/4cc4f432-57f1-45d4-bcaf-203175627f92)
-![Screenshot 2023-07-19 162536](https://github.com/famecryptic/raycasting/assets/124629735/73e3ffc9-3a97-47b9-aeaa-7218ef4a6d0c)
