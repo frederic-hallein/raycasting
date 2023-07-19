@@ -6,9 +6,9 @@ https://lodev.org/cgtutor/raycasting.html. The rendering is done with the SDL li
 
 # How to run
 
-Step 1: Download all the files.
-Step 2: Via a terminal go to the raycasting directory.
-Step 3: Enter the "mingw32-make -f makefile" command. This should create a main.exe in the same folder.
+Step 1: Download all the files. \
+Step 2: Via a terminal go to the raycasting directory. \
+Step 3: Enter the "mingw32-make -f makefile" command. This should create a main.exe in the same folder. \
 Step 4: Run main.exe. 
 
 # Troubleshooting
