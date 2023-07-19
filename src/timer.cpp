@@ -23,7 +23,7 @@ void Timer::stop()
     frame_time = (time - old_time) / 1000.0;
 
     double FPS = 1.0 / frame_time;
-    std::cout << "FPS = " << (int)FPS << " \n";
+    //std::cout << "FPS = " << (int)FPS << " \n";
 }
 
 double Timer::getTime() {return time;}

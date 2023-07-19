@@ -10,6 +10,7 @@ Player::~Player() {}
 
 void Player::handleEvents(SDL_Event event)
 {
+
     switch(event.type){
         case SDL_KEYDOWN:
             {
@@ -27,8 +28,8 @@ void Player::handleEvents(SDL_Event event)
         case SDL_KEYUP:
             {
             Uint8 const* keys = SDL_GetKeyboardState(nullptr);
-            if(keys[SDL_SCANCODE_W] == 0)
-                direction = Direction::NONE;
+            if(keys[SDL_SCANCODE_W] == 0){
+                direction = Direction::NONE;}
             else if(keys[SDL_SCANCODE_S] == 0)
                 direction = Direction::NONE;
             else if(keys[SDL_SCANCODE_A] == 0)
@@ -49,7 +50,6 @@ void Player::printPlayerInfo()
 
 void Player::update()
 {
-
     switch (direction){
         case Direction::NONE:
             x_pos += 0.0;

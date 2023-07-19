@@ -40,8 +40,8 @@ private:
     Direction direction;
     Map map;
 
-    double x_pos = 20;
-    double y_pos = 12;
+    double x_pos = 22;
+    double y_pos = 21.5;
     double x_dir = -1;
     double y_dir = 0;
     double x_plane = 0;
