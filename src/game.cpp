@@ -104,33 +104,15 @@ void Game::render()
     SDL_RenderClear(renderer);
     for (int x = 0; x < w; x++)
     {
-        if (rays[x].getLineHeight() < h)
+        if (rays[x].getSide() == 1)
         {
-            double shading = rays[x].getLineHeight() / (double)h; 
-            // draw walls 
-            if (rays[x].getSide() == 1)
-            {
-                SDL_SetRenderDrawColor(renderer, shading * side_wall_RGB[0], shading * side_wall_RGB[1], shading * side_wall_RGB[2], 255);
-            }
-            else 
-            {
-                SDL_SetRenderDrawColor(renderer, shading * front_wall_RGB[0], shading * front_wall_RGB[1], shading * front_wall_RGB[2], 255);   
-            }
+            SDL_SetRenderDrawColor(renderer, side_wall_RGB[0], side_wall_RGB[1], side_wall_RGB[2], 255);
         }
-        else
+        else 
         {
-            if (rays[x].getSide() == 1)
-            {
-                SDL_SetRenderDrawColor(renderer, side_wall_RGB[0], side_wall_RGB[1], side_wall_RGB[2], 255);
-            }
-            else 
-            {
-                SDL_SetRenderDrawColor(renderer, front_wall_RGB[0], front_wall_RGB[1], front_wall_RGB[2], 255);   
-            }
+            SDL_SetRenderDrawColor(renderer, front_wall_RGB[0], front_wall_RGB[1], front_wall_RGB[2], 255);   
         }
-
-
-
+    
         SDL_RenderDrawLine(renderer, x, rays[x].getDrawStart(), x, rays[x].getDrawEnd());
                 
         // draw floor
