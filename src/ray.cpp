@@ -52,6 +52,7 @@ double Ray::getSideXDist() {return side_x_dist;}
 double Ray::getSideYDist() {return side_y_dist;}
 double Ray::getDeltaXDist() {return delta_x_dist;}
 double Ray::getDeltaYDist() {return delta_y_dist;}
+double Ray::getPerpWallDist() {return perp_wall_dist;}
 
 int Ray::getLineHeight() {return line_height;}
 int Ray::getDrawStart() {return draw_start;}

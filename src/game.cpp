@@ -100,68 +100,36 @@ void Game::render()
     int floor_RGB[3] = {130, 118, 47};
     int celing_RGB[3] = {167, 164, 122};
 
-    int short_line = h / 50;
-    int medium_short_line = h / 30;
-    int medium_long_line = h / 20;
-    int long_line = h / 10;
-    int very_long_line = h / 5;
-
-    int far_gradient = 100;
-    int medium_far_gradient = far_gradient / 2;
-    int medium_near_gradient = medium_far_gradient / 2;
-    int near_gradient = medium_near_gradient / 2;
-
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
     for (int x = 0; x < w; x++)
     {
-        // draw walls 
-        if (rays[x].getSide() == 1)
+        if (rays[x].getLineHeight() < h)
         {
-            if (rays[x].getLineHeight() <= short_line)
+            double shading = rays[x].getLineHeight() / (double)h; 
+            // draw walls 
+            if (rays[x].getSide() == 1)
             {
-                SDL_SetRenderDrawColor(renderer, side_wall_RGB[0] - far_gradient, side_wall_RGB[1] - far_gradient, side_wall_RGB[2] - far_gradient, 255);
+                SDL_SetRenderDrawColor(renderer, shading * side_wall_RGB[0], shading * side_wall_RGB[1], shading * side_wall_RGB[2], 255);
             }
-            else if (rays[x].getLineHeight() > short_line && rays[x].getLineHeight() <= medium_short_line)
+            else 
             {
-                SDL_SetRenderDrawColor(renderer, side_wall_RGB[0] - medium_far_gradient, side_wall_RGB[1] - medium_far_gradient, side_wall_RGB[2] - medium_far_gradient, 255);
+                SDL_SetRenderDrawColor(renderer, shading * front_wall_RGB[0], shading * front_wall_RGB[1], shading * front_wall_RGB[2], 255);   
             }
-            else if (rays[x].getLineHeight() > medium_short_line && rays[x].getLineHeight() <= medium_long_line)
-            {
-                SDL_SetRenderDrawColor(renderer, side_wall_RGB[0] - medium_near_gradient, side_wall_RGB[1] - medium_near_gradient, side_wall_RGB[2] - medium_near_gradient, 255);
-            }
-            else if (rays[x].getLineHeight() > medium_long_line && rays[x].getLineHeight() <= very_long_line)
-            {
-                SDL_SetRenderDrawColor(renderer, side_wall_RGB[0] - near_gradient, side_wall_RGB[1] - near_gradient, side_wall_RGB[2] - near_gradient, 255);
-            }
-            else
+        }
+        else
+        {
+            if (rays[x].getSide() == 1)
             {
                 SDL_SetRenderDrawColor(renderer, side_wall_RGB[0], side_wall_RGB[1], side_wall_RGB[2], 255);
             }
-        }
-        else 
-        {
-            if (rays[x].getLineHeight() <= short_line)
+            else 
             {
-                SDL_SetRenderDrawColor(renderer, front_wall_RGB[0] - far_gradient, front_wall_RGB[1] - far_gradient, front_wall_RGB[2] - far_gradient, 255);
-            }
-            else if (rays[x].getLineHeight() > short_line && rays[x].getLineHeight() <= medium_short_line)
-            {
-                SDL_SetRenderDrawColor(renderer, front_wall_RGB[0] - medium_far_gradient, front_wall_RGB[1] - medium_far_gradient, front_wall_RGB[2] - medium_far_gradient, 255);
-            }
-            else if (rays[x].getLineHeight() > medium_short_line && rays[x].getLineHeight() <= medium_long_line)
-            {
-                SDL_SetRenderDrawColor(renderer, front_wall_RGB[0] - medium_near_gradient, front_wall_RGB[1] - medium_near_gradient, front_wall_RGB[2] - medium_near_gradient, 255);
-            }
-            else if (rays[x].getLineHeight() > medium_long_line && rays[x].getLineHeight() <= very_long_line)
-            {
-                SDL_SetRenderDrawColor(renderer, front_wall_RGB[0] - near_gradient, front_wall_RGB[1] - near_gradient, front_wall_RGB[2] - near_gradient, 255);
-            }
-            else
-            {
-                SDL_SetRenderDrawColor(renderer, front_wall_RGB[0], front_wall_RGB[1], front_wall_RGB[2], 255);
+                SDL_SetRenderDrawColor(renderer, front_wall_RGB[0], front_wall_RGB[1], front_wall_RGB[2], 255);   
             }
         }
+
+
 
         SDL_RenderDrawLine(renderer, x, rays[x].getDrawStart(), x, rays[x].getDrawEnd());
                 

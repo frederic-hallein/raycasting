@@ -24,6 +24,7 @@ public:
     double getSideYDist();
     double getDeltaXDist();
     double getDeltaYDist();
+    double getPerpWallDist();
     int getLineHeight();
     int getDrawStart();
     int getDrawEnd();
