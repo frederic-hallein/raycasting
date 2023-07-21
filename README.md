@@ -18,4 +18,5 @@ If the command from Step 3 is not recognized, try to install the mingw-get-setup
 After that, make sure you have "mingw32\bin" in your PATH.
 
 # Screenshot
-![Screenshot 2023-07-19 162428](https://github.com/famecryptic/raycasting/assets/124629735/4cc4f432-57f1-45d4-bcaf-203175627f92)
+
+![Screenshot 2023-07-19 162428](https://github.com/famecryptic/raycasting/assets/124629735/7c3742d6-83e2-4c8e-98f8-d11172ccc35f)
