@@ -1,6 +1,6 @@
-# ray_casting
+# ray casting
 
-Implementation of raycasting via the DDA algorithm. Code is based on this website: \
+Raycasting is a rendering technique to create a 3D perspective in a 2D map. Implementation of raycasting via the DDA algorithm. Code is based on this website: \
 https://lodev.org/cgtutor/raycasting.html. The rendering is done with the SDL library. 
 
 
