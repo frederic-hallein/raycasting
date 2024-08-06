@@ -19,6 +19,8 @@ S : backwards
 A : camera rotates left
 D : camera rotates right
 
-# Screenshot
+# Screenshots
 
-![Screenshot 2023-07-19 162428](https://github.com/famecryptic/raycasting/assets/124629735/7c3742d6-83e2-4c8e-98f8-d11172ccc35f)
+
+![Screenshot from 2024-08-06 10-54-51](https://github.com/user-attachments/assets/795943dc-c147-4a0f-be84-e4b21d48311e)
+![Screenshot from 2024-08-06 10-58-15](https://github.com/user-attachments/assets/0c51641c-91d9-4689-bb6f-89e4f097e154)
