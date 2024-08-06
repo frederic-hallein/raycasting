@@ -9,7 +9,7 @@ proper install of SDL2 on Linux, I refer to https://lazyfoo.net/tutorials/SDL/01
 
 Step 1: Download all the files. \
 Step 2: Open a terminal and go inside the `/raycasting` directory. \
-Step 3: By running the `make all` command, it creates a `main.exe` executable.  \
+Step 3: By running the `make all` command, it creates a `main.exe` executable in the directory.  \
 Step 4: Run the executable by typing: `./main`. 
 
 # How to play
