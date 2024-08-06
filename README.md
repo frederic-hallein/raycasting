@@ -8,7 +8,7 @@ The implementation is based on the following website: https://lodev.org/cgtutor/
 
 Step 1: Download all the files. \
 Step 2: Open a terminal and go inside the `/raycasting` directory. \
-Step 3: By running the `make all` command, it creates a `main.exe` executable in the directory.  \
+Step 3: By running the `make all` command, it creates a `main` executable file in the same directory.  \
 Step 4: Run the executable by typing: `./main`. 
 
 # How to play
