@@ -15,7 +15,7 @@ Step 4: Run the executable by typing: `./main`.
 
 Character control is done using the WASD keys. \
 W : forward \
-S : backwards \
+S : backward \
 A : camera rotates left \
 D : camera rotates right 
 
