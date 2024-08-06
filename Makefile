@@ -23,3 +23,7 @@ OBJ_NAME = main
 #This is the target that compiles our executable
 all: 
 	$(CC) $(INC) -o $(OBJ_NAME) $(OBJS) $(LINKER_FLAGS) 
+
+
+clean:
+	-rm main

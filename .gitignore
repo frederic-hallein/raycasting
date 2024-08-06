@@ -13,4 +13,4 @@
 # Compiled Static libraries
 
 # Executables
-*.exe
+main
