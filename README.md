@@ -1,4 +1,4 @@
-# Ray Casting
+# Raycasting
 
 Raycasting is a rendering technique used to create a 3D perspective in a 2D map. This code uses the DDA (= Digital Differential Analyzer) algorithm. 
 The implementation is based on the following website: https://lodev.org/cgtutor/raycasting.html. The rendering is done using the SDL2 library. For a
