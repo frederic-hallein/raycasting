@@ -22,8 +22,8 @@ Step 5: Run the executable by typing the following command:
 # How to play
 
 Character control is done using the WASD keys. \
-W : forward \
-S : backward \
+W : move forward \
+S : move backward \
 A : camera rotates left \
 D : camera rotates right 
 
