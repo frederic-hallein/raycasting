@@ -9,11 +9,11 @@ The rendering is done using the SDL2 library.
 Step 1: Download all the files. \
 Step 2: Install the SDL2 library using the following website: `https://lazyfoo.net/tutorials/SDL/01_hello_SDL/linux/index.php`. \
 Step 3: Open a terminal and go inside the `/raycasting` directory. \
-Step 4: By running the followinf command: \
+Step 4: By running the following command: \
 ```
 make all
 ``` 
-It should create a `main` executable file in the same directory.  \
+it should create a `main` executable file in the same directory.  \
 Step 5: Run the executable using the following command: \
 ```
 ./main
