@@ -4,30 +4,50 @@ Raycasting is a rendering technique used to create a 3D perspective in a 2D map.
 The rendering is done using the SDL2 library.
 
 
-# How to run (Linux)
 
-Step 1: Download all the files. \
-Step 2: Install the SDL2 library using the following link: https://lazyfoo.net/tutorials/SDL/01_hello_SDL/linux/index.php. \
-Step 3: Open a terminal and go inside the `/raycasting` directory. \
-Step 4: Use the following command: 
+## How To Install & Run (Linux)
+
+1. Install the C++ compiler g++ using the following command:
+```bash
+sudo apt-get install g++
 ```
+
+2. To check which version is installed run the following command:
+```bash
+g++ --version
+```
+
+3. Install the SDL2 library using the following command:
+```bash
+sudo apt install libsdl2-image-dev
+```
+
+4. Clone the remote repository to your local machine using the following command:
+```bash
+git clone https://github.com/frederic-hallein/raycasting
+```
+5. To compile the project, go inside the `raycasting/` directory and run the following command: 
+```bash
 make all
 ``` 
-This should create a `main` executable file in the same directory.  \
-Step 5: Run the executable by using the following command: 
-```
+This should create a `main` executable file in the same directory. 
+
+6. Run the executable by using the following command: 
+```bash
 ./main
 ```
 
-# How to play
+## Controls
 
-Character control is done using the WASD keys. \
-W : move forward \
-S : move backward \
-A : camera rotates left \
-D : camera rotates right 
+Character control is done using the `wasd` keys. \
+`w` : move forward \
+`a` : move backward \
+`s` : camera rotates left \
+`d` : camera rotates right 
 
-# Screenshots
+
+
+## Screenshots
 
 ![Screenshot from 2024-08-06 10-58-15](https://github.com/user-attachments/assets/0c51641c-91d9-4689-bb6f-89e4f097e154)
 ![Screenshot from 2024-08-06 10-54-51](https://github.com/user-attachments/assets/795943dc-c147-4a0f-be84-e4b21d48311e) 
