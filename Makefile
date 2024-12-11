@@ -1,6 +1,3 @@
-#all:
-#	g++ -Iinclude -Iinclude/SDL2 -Iinclude/headers -Llib -o main src/*.cpp -lmingw32 -lSDL2main -lSDL2 -lSDL2_image
-
 #OBJS specifies which files to compile as part of the project
 OBJS = src/*.cpp
 
