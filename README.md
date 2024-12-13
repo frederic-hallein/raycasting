@@ -42,8 +42,8 @@ $~~~~~~~~$ This should create a `main` executable file in the same directory.
 Character control is done using the `wasd` keys. 
 - `w` : forward movement
 - `a` : backward movement
-- `s` : left camera roatation 
-- `d` : right camera roatation 
+- `s` : left camera rotation 
+- `d` : right camera rotation 
 
 
 
