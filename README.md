@@ -12,38 +12,38 @@ The rendering is done using the SDL2 library.
 sudo apt-get install g++
 ```
 
-2. To check which version is installed run the following command:
+$~~~~~~~~~$ To check which version is installed run the following command:
 ```bash
 g++ --version
 ```
 
-3. Install the SDL2 library using the following command:
+2. Install the SDL2 library using the following command:
 ```bash
 sudo apt install libsdl2-image-dev
 ```
 
-4. Clone the remote repository to your local machine using the following command:
+3. Clone the remote repository to your local machine using the following command:
 ```bash
 git clone https://github.com/frederic-hallein/raycasting
 ```
-5. To compile the project, go inside the `raycasting/` directory and run the following command: 
+4. To compile the project, go inside the `raycasting/` directory and run the following command: 
 ```bash
 make all
 ``` 
-This should create a `main` executable file in the same directory. 
+$~~~~~~~~~$ This should create a `main` executable file in the same directory. 
 
-6. Run the executable by using the following command: 
+5. Run the executable by using the following command: 
 ```bash
 ./main
 ```
 
 ## Controls
 
-Character control is done using the `wasd` keys. \
-`w` : move forward \
-`a` : move backward \
-`s` : camera rotates left \
-`d` : camera rotates right 
+Character control is done using the `wasd` keys. 
+- `w` : forward movement
+- `a` : backward movement
+- `s` : left camera roatation 
+- `d` : right camera roatation 
 
 
 
