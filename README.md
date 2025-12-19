@@ -12,7 +12,7 @@ The rendering is done using the SDL2 library.
 sudo apt-get install g++
 ```
 
-$~~~~~~~~$ To check which version is installed run the following command:
+To check which version is installed run the following command:
 ```bash
 g++ --version
 ```
@@ -30,7 +30,7 @@ git clone https://github.com/frederic-hallein/raycasting
 ```bash
 make all
 ``` 
-$~~~~~~~~$ This should create a `main` executable file in the same directory. 
+This should create a `main` executable file in the same directory. 
 
 5. Run the executable by using the following command: 
 ```bash
